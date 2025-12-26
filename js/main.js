@@ -14,7 +14,7 @@ uploadBtn.addEventListener("click", () =>
 inputUpload.addEventListener("change", async (event) =>
 {
     const file = event.target.files[0];
-    const validation = validateFile({ file, maxSizeMB: 5 });
+    const validation = validateFile({ file });
 
     if (!validation.valid) 
     {
