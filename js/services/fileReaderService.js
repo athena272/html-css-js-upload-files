@@ -1,5 +1,4 @@
-
-export function fileReader(file)
+export function readFileAsDataURL(file)
 {
     return new Promise((resolve, reject) =>
     {
@@ -8,9 +7,10 @@ export function fileReader(file)
         {
             resolve({ url: reader.result, name: file.name });
         };
+
         reader.onerror = () =>
         {
-            reject(`Erro na leitura do arquivo ${file.name}`);
+            reject(new Error(`Erro na leitura do arquivo ${file.name}`));
         };
 
         reader.readAsDataURL(file);
