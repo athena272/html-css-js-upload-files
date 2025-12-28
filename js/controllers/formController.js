@@ -1,10 +1,12 @@
 import { submitProject } from "../services/projectService.js";
-import { extractTags } from "../views/tagView.js";
+import { extractTags, clearTags } from "../views/tagView.js";
+import { clearUploadArea } from "./uploadController.js";
 
 const elements = {
     publishButton: document.querySelector(".botao-publicar"),
     nameInput: document.getElementById("nome"),
-    descriptionInput: document.getElementById("descricao")
+    descriptionInput: document.getElementById("descricao"),
+    resetButton: document.getElementById('reset-button'),
 };
 
 function buildPayload()
@@ -32,7 +34,14 @@ async function handleFormSubmit(event)
     }
 }
 
+function handleFormReset()
+{
+    clearUploadArea();
+    clearTags();
+}
+
 export function initFormController()
 {
     elements.publishButton.addEventListener('click', handleFormSubmit);
+    elements.resetButton.addEventListener('click', handleFormReset);
 }
