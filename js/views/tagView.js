@@ -15,6 +15,10 @@ export function clearTagInput()
     tagElements.input.value = "";
 }
 
+export function clearTags() {
+    tagElements.list.innerHTML = "";
+}
+
 export function extractTags()
 {
     return Array.from(tagElements.list.querySelectorAll("p")).map((p) => p.textContent);
