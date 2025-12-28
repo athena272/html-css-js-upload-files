@@ -36,6 +36,12 @@ function handleUploadButtonClick()
     elements.inputUpload.click();
 }
 
+export function clearUploadArea()
+{
+    elements.mainImage.src = "./img/imagem1.png";
+    elements.imageName.textContent = "image_projeto.png";
+}
+
 export function initUploadController()
 {
     elements.uploadBtn.addEventListener("click", handleUploadButtonClick);
